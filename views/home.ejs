@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Granblue Character Database</title>
+  </head>
+  <body>
+    Granblue Character Database
+    <ul>
+    <%  characterArray.forEach(function(character) { %>
+        <li class="<%= character.Element %>"><%= character.Name %> || <%= character.Element %></li>
+    <%  }); %>
+    </ul>
+  </body>
+</html>

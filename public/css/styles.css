@@ -1,0 +1,36 @@
+h1 {
+  color: green;
+}
+ul {
+  list-style-type: none;
+}
+span {
+  display: inline-block;
+  padding-right: 1%;
+}
+span.element {
+  background-image: url('../images/filterIcons.png');
+  background-repeat: no-repeat;
+  width: 17px;
+  height: 17px;
+  background-size: 25px 910px;
+  /* background-size IS USED TO SCALE THE BACKGROUND IMAGE; MAKE THE NUMBERS WHATEVER PERCENTAGE YOU WANT OF THE ORIGINAL IMAGE SIZE; For example, this image's original size is 100px 3640px, and I wanted it one quarter of that */
+}
+span.Fire {
+  background-position: 0px -343px;
+}
+span.Water {
+  background-position: 0px -145px;
+}
+span.Wind {
+  background-position: 0px -118px;
+}
+span.Light {
+  background-position: 0px -91px;
+}
+span.Earth {
+  background-position: 0px -211px;
+}
+span.Dark {
+  background-position: 0px -237px;
+}

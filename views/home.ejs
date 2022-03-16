@@ -3,12 +3,13 @@
   <head>
     <meta charset="utf-8">
     <title>Granblue Character Database</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
   </head>
   <body>
-    Granblue Character Database
+    <h1>Granblue Character Database</h1>
     <ul>
     <%  characterArray.forEach(function(character) { %>
-        <li class="<%= character.Element %>"><%= character.Name %> || <%= character.Element %></li>
+        <li><span class="<%= character.Element %> element"></span><%= character.Name %>%></li>
     <%  }); %>
     </ul>
   </body>

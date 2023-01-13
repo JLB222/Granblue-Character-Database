@@ -1,16 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Granblue Character Database</title>
-    <link rel="stylesheet" type="text/css" href="css/styles.css">
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Granblue Character Database</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+
+<body>
+  <header>
     <h1>Granblue Character Database</h1>
-    <ul>
-    <%  characterArray.forEach(function(character) { %>
-        <li><span class="<%= character.Element %> element"></span><%= character.Name %>%></li>
-    <%  }); %>
-    </ul>
-  </body>
+  </header>
+  <div class="flex-container">
+
+    <section class="results">
+      <ul>
+        <%  characterArray.forEach(function(character) { %>
+        <li><span class="<%= character.Element %> element"></span><%= character.Name %></li>
+        <%  }); %>
+      </ul>
+    </section>
+
+    <section class="display flex-container">
+
+      <section class="characterEntry">
+        <h2><%= characterArray[0].Name %></h2>
+        <div class="">
+          <button id="<%=characterArray[0].CharacterID%>" type="button" name="button">Image Toggle</button>
+        </div>
+        <img src="images/<%=characterArray[0].Type%>/<%=characterArray[0].CharacterID%>_01.png" alt="character portrait 1">
+        <img class="hidden" src="images/<%=characterArray[0].Type%>/<%=characterArray[0].CharacterID%>_02.png" alt="charaacter portrait 2">
+        <!-- This src filepath is dynamically filled in by using EJS to fill in the type(race) and character ID of the character listed... unfortunately it looks awful. -->
+      </section>
+
+    </section>
+
+  </div>
+<script type="text/javascript" src="index.js">
+
+</script>
+</body>
+
 </html>

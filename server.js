@@ -7,7 +7,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect('mongodb://localhost:27017/GCD'); //What dataabase you're writing to
+mongoose.connect('mongodb://localhost:27017/GCD'); //What database you're writing to
 
 const characterSchema = new mongoose.Schema({
   Name: {
@@ -107,5 +107,10 @@ app.post('/characterEntry', function(req, res) {
 
 //testing area
 
-
+//tested in postman and this seems to work.  Will stay here in test area until I'm certain this is how the final code will work.
+app.get("/api/:charID", function(req,res) {
+  Character.find({CharacterID: req.params.charID}, function(err, results) {
+    res.json(results)
+  })
+}) 
 //testing area

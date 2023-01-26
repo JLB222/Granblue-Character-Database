@@ -51,11 +51,11 @@ span.Dark {
   text-align: center;
   border: 5px solid black;
   min-width: 25%;
-  max-height: 50%;
+  max-height: 569px;
   flex: .5;
 }
 
 img {
-  height: 285px;
-  width: 285px;
+  max-width: 100%;
+  height: auto;
 }

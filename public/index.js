@@ -48,8 +48,11 @@ Enhance! - When character images are clicked, you get a full size version in-win
 Solved Issues:
 The toggle image function is way too narrow.  It currently only works with Anthuria because her ID is hardcoded into it with getElementById.  
   SOLVED! - Now all character entries on the page should have their own img toggler 1/18/23
+Database is now live as opposed to being local on my PC.
 
 */
+
+
 
 
 /* TEST AREA

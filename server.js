@@ -2,12 +2,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
+const login = "JLBrown222:26JAN%401306"  //move this to separate file and import it
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-mongoose.connect('mongodb://localhost:27017/GCD'); //What database you're writing to
+//mongoose.connect('mongodb://localhost:27017/GCD'); //connecting to local database
+mongoose.connect(`mongodb+srv://${login}@cluster0.vit0cee.mongodb.net/GCD?retryWrites=true&w=majority`);  //connecting to live database
 
 const characterSchema = new mongoose.Schema({
   Name: {
@@ -113,4 +115,5 @@ app.get("/api/:charID", function(req,res) {
     res.json(results)
   })
 }) 
+
 //testing area

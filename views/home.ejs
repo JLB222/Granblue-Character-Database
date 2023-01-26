@@ -33,12 +33,12 @@
       </section>
 
       <section class="characterEntry">
-        <h2><%= characterArray[4].Name %></h2>
+        <h2><%= characterArray[1].Name %></h2>
         <div class="">
-          <button id="<%=characterArray[4].CharacterID%>" type="button" name="button">Image Toggle</button>
+          <button id="<%=characterArray[1].CharacterID%>" type="button" name="button">Image Toggle</button>
         </div>
-        <img class= "<%=characterArray[4].CharacterID%>" src="images/<%=characterArray[4].Type%>/<%=characterArray[4].CharacterID%>_01.png" alt="character portrait 1">
-        <img class="<%=characterArray[4].CharacterID%> hidden" src="images/<%=characterArray[4].Type%>/<%=characterArray[4].CharacterID%>_02.png" alt="character portrait 2">
+        <img class= "<%=characterArray[1].CharacterID%>" src="images/<%=characterArray[1].Type%>/<%=characterArray[1].CharacterID%>_01.png" alt="character portrait 1">
+        <img class="<%=characterArray[1].CharacterID%> hidden" src="images/<%=characterArray[1].Type%>/<%=characterArray[1].CharacterID%>_02.png" alt="character portrait 2">
         <!-- This src filepath is dynamically filled in by using EJS to fill in the type(race) and character ID of the character listed... unfortunately it looks awful. -->
       </section>
 

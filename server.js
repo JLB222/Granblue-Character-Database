@@ -73,7 +73,6 @@ const characterSchema = new mongoose.Schema({
 const Character = mongoose.model('Character', characterSchema);  //the first argument in the model parethesis is the singular form of what collection you're writing to, in this case: 'Characters', plural
 
 app.get('/', function(req, res) {
-
   Character.find({}, function(err, results){
     res.render("home", {characterArray: results});
   }).sort({Name: 'asc'});
@@ -104,6 +103,7 @@ app.post('/characterEntry', function(req, res) {
     Series: req.body.cSeries,
   });
   newCharacter.save();
+  res.redirect('/')
 });
 
 

@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
 const login = "JLBrown222:26JAN%401306"  //move this to separate file and import it
+const PORT = 3000
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
@@ -79,7 +80,7 @@ app.get('/', function(req, res) {
 
 });
 
-app.listen(3000, function() {
+app.listen(process.env.PORT || PORT, function() {
   console.log("Listening: 3000")
 });
 app.get('/characterEntry', function(req, res) {

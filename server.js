@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
-const login = "JLBrown222:26JAN%401306"  //move this to separate file and import it
+const login = require("./login")
 const PORT = 3000
 
 app.set('view engine', 'ejs');
@@ -10,7 +10,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 //mongoose.connect('mongodb://localhost:27017/GCD'); //connecting to local database
-mongoose.connect(`mongodb+srv://${login}@cluster0.vit0cee.mongodb.net/GCD?retryWrites=true&w=majority`);  //connecting to live database
+mongoose.connect(`mongodb+srv://${login.userName}:${login.password}@cluster0.vit0cee.mongodb.net/GCD?retryWrites=true&w=majority`);  //connecting to live database
 
 const characterSchema = new mongoose.Schema({
   Name: {

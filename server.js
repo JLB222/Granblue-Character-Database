@@ -2,15 +2,18 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const app = express();
-const login = require("./login")
-const PORT = 3000
+const login = require("./login")  //cyclic deployment not working because it can't find /login  
+const port = process.env.PORT || 3000
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 //mongoose.connect('mongodb://localhost:27017/GCD'); //connecting to local database
-mongoose.connect(`mongodb+srv://${login.userName}:${login.password}@cluster0.vit0cee.mongodb.net/GCD?retryWrites=true&w=majority`);  //connecting to live database
+mongoose.connect(`mongodb+srv://${login.userName}:${login.password}@cluster0.vit0cee.mongodb.net/GCD?retryWrites=true&w=majority`)
+  .then(app.listen(port, function() {
+    console.log("Listening: 3000")
+  }));  //connecting to live database
 
 const characterSchema = new mongoose.Schema({
   Name: {
@@ -73,6 +76,10 @@ const characterSchema = new mongoose.Schema({
 
 const Character = mongoose.model('Character', characterSchema);  //the first argument in the model parethesis is the singular form of what collection you're writing to, in this case: 'Characters', plural
 
+// app.listen(port, function() {
+//   console.log("Listening: 3000")
+// })
+
 app.get('/', function(req, res) {
   Character.find({}, function(err, results){
     res.render("home", {characterArray: results});
@@ -80,9 +87,6 @@ app.get('/', function(req, res) {
 
 });
 
-app.listen(process.env.PORT || PORT, function() {
-  console.log("Listening: 3000")
-});
 app.get('/characterEntry', function(req, res) {
   res.sendFile(__dirname + '/characterEntry.html')
 });
